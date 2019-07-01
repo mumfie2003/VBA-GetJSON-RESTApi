@@ -2,9 +2,28 @@
 Sample Excel VBA code to get JSON response from a JSON REST API
 This example uses an API to return share values from https://www.alphavantage.co
 
+The following shows an example JSON response
+```
+{
+    "Global Quote": {
+        "01. symbol": "BNC.L",
+        "02. open": "362.7000",
+        "03. high": "365.7500",
+        "04. low": "360.3200",
+        "05. price": "361.4500",
+        "06. volume": "292676",
+        "07. latest trading day": "2019-06-27",
+        "08. previous close": "363.2500",
+        "09. change": "-1.8000",
+        "10. change percent": "-0.4955%"
+    }
+}
+
+```
+
 In order to run the code you will need to register for an API key at https://www.alphavantage.co and assign to the VBA code const API_SECRET_KEY
 
-This code is provided as is without warranty of any kind and use is at your own risk.
+# IMPORTANT This code is provided as is without warranty of any kind and your use is at your own risk.
 
 Source files are provided in TXT format which can be pasted into a new module in the excel VBA editor
 
