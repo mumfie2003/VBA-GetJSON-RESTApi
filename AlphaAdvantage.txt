@@ -1,0 +1,69 @@
+'TODO register for API key at https://www.alphavantage.co and assign to API_SECRET_KEY
+Const API_SECRET_KEY = "MY API KEY"
+
+Const API_RESPONSE_ERROR As Long = vbObjectError + 513
+Const API_BASE_URL = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&apikey=[API_SECRET_KEY]&symbol=[SYMBOL]"
+
+
+Function Datarequest(Url As String, Optional postParameters As String = "") As String
+    Dim objHTTP As Object
+    Dim requestType As String
+    
+    If postParameters <> "" Then
+        requestType = "POST"
+    Else
+        requestType = "GET"
+    End If
+    
+    Set objHTTP = CreateObject("MSXML2.XMLHTTP")
+    objHTTP.Open requestType, Url, False
+    objHTTP.setrequestheader "Content-Type", "application/json"
+    If postParameters <> "" Then
+        objHTTP.send postParameters
+    Else
+        objHTTP.send
+    End If
+    Datarequest = objHTTP.responseText
+End Function
+
+Public Function GetAlphaAdvantageSymbolValue(ByVal Symbol) As Object
+
+    Dim json As Object
+    Dim Url As String
+    Dim errMsg
+    Dim result As String
+    
+    Url = Replace(API_BASE_URL, "[API_SECRET_KEY]", API_SECRET_KEY)
+    Url = Replace(Url, "[SYMBOL]", Symbol)
+       
+    result = Datarequest(Url)
+    Set json = ParseJson(result)
+    
+    errMsg = json("Error Message")
+    If (errMsg > "") Then
+        Err.Raise API_RESPONSE_ERROR, "AlphaAdvantage API Response Error ", errMsg
+    End If
+    
+    Set GetAlphaAdvantageSymbolValue = json
+End Function
+
+Public Sub Test()
+On Error GoTo eh
+Dim jsonResult As Object
+
+Set jsonResult = GetAlphaAdvantageSymbolValue("BNC.L")
+Debug.Print jsonResult("Global Quote")("01. symbol")
+Debug.Print jsonResult("Global Quote")("05. price")
+Debug.Print jsonResult("Global Quote")("07. latest trading day")
+
+Set jsonResult = GetAlphaAdvantageSymbolValue("LLOY.LON")
+Debug.Print jsonResult("Global Quote")("01. symbol")
+Debug.Print jsonResult("Global Quote")("05. price")
+Debug.Print jsonResult("Global Quote")("07. latest trading day")
+
+Done:
+    Exit Sub
+eh:
+    ' Err.Raise will send code to here
+    MsgBox "An Error occured: " & Err.Description
+End Sub
