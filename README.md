@@ -66,3 +66,13 @@ View Immediate window should show Json data recieved from API
 
 ## Customize
 amend code as required to return your symbols, assign data to spreadsheet cells etc.
+
+# Credits
+Thanks to the following websites which provided sample code and helpful insight
+
+https://www.advaiya.com/blog/calling-azure-rest-service-vba/
+
+https://codingislove.com/excel-json/
+
+https://github.com/VBA-tools/VBA-JSON/issues/135
+
