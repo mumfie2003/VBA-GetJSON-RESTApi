@@ -8,10 +8,10 @@ This code is provided as is without warranty of any kind and use is at your own 
 
 Source files are provided in TXT format which can be pasted into a new module in the excel VBA editor
 
-Setup (based on Excel 2010)
+The following steps are based on Excel 2016
 goto url https://www.alphavantage.co and register for API key
 
-\View Macros
+Access the VBA editor
 Add dependencies via \Tools References
 Microsoft ActiveX Data Objects 2.8 library
 Microsoft Scription Runtime
