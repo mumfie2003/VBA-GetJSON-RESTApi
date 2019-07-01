@@ -59,10 +59,9 @@ Microsoft Scription Runtime
 ## Initial Test 
 At the bottom of module AlphaAdvantage is a sub Test.
 
-place cursor within and run code
-![alt text](screenshots/2019-07-01_11-32-56.png "Test")
+place cursor within and run code then view the IDE Immediate window to view the Json data recieved from the REST API
 
-View Immediate window should show Json data recieved from API
+![alt text](screenshots/2019-07-01_11-42-42.png "Test")
 
 ## Customize
 amend code as required to return your symbols, assign data to spreadsheet cells etc.
