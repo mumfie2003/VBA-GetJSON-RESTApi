@@ -11,10 +11,8 @@ Source files are provided in TXT format which can be pasted into a new module in
 The following steps are based on Excel 2016
 goto url https://www.alphavantage.co and register for API key
 
-Access the VBA editor
-Add dependencies via \Tools References
-Microsoft ActiveX Data Objects 2.8 library
-Microsoft Scription Runtime
+## Access the VBA editor
+![alt text](screenshots/2019-07-01_11-32-56.png "Access the VBA editor")
 
 Macro name 
 Right click modules
@@ -26,8 +24,16 @@ paste code from VbaJson.txt
 open module AlphaAdvantage
 at top of module API_SECRET_KEY add your API key from above
 
+## Add dependencies via \Tools References
+![alt text](screenshots/2019-07-01_11-37-51.png "Add dependencies")
+Microsoft ActiveX Data Objects 2.8 library
+Microsoft Scription Runtime
+
+## Initial Test 
 At the bottom of module AlphaAdvantage is a sub Test.
 place cursor within and run code
-
+![alt text](screenshots/2019-07-01_11-32-56.png "Test")
 View Immediate window should show Json data recieved from API
-amend code as required for your symbols, assign data to spreadsheet cells etc.
+
+## Customize
+amend code as required to return your symbols, assign data to spreadsheet cells etc.
