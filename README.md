@@ -27,7 +27,8 @@ In order to run the code you will need to register for an API key at https://www
 
 Source files are provided in TXT format which can be pasted into a new module in the excel VBA editor
 
-The following steps are based on Excel 2016
+# The following steps are based on Excel 2016
+
 goto url https://www.alphavantage.co and register for API key
 
 ## Access the VBA editor
@@ -35,23 +36,32 @@ goto url https://www.alphavantage.co and register for API key
 
 Macro name 
 Right click modules
+
 Insert New Module and name AlphaAdvantage
+
 paste code from alphaAdvantage.txt
+
 Insert New Module and name VBAJson
+
 paste code from VbaJson.txt
 
 open module AlphaAdvantage
+
 at top of module API_SECRET_KEY add your API key from above
 
 ## Add dependencies via \Tools References
 ![alt text](screenshots/2019-07-01_11-37-51.png "Add dependencies")
+
 Microsoft ActiveX Data Objects 2.8 library
+
 Microsoft Scription Runtime
 
 ## Initial Test 
 At the bottom of module AlphaAdvantage is a sub Test.
+
 place cursor within and run code
 ![alt text](screenshots/2019-07-01_11-32-56.png "Test")
+
 View Immediate window should show Json data recieved from API
 
 ## Customize
